@@ -1,6 +1,34 @@
 :root {
     --primary-dark: #333;
+    --secondary-dark: #444;
     --primary-light: #eee;
+    --secondary-light: #ddd;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6;
+
+    /* footer support */
+    position: relative;
+    /* makes html an element which footer sticks to */
+    min-height: 100%;
+    /* not necessary when main takes all available space */
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "Roboto", sans-serif;
+    color: var(--primary-dark);
+    background-color: var(--primary-light);
 }
 
 .button-open-nav {
