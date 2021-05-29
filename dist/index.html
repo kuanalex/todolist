@@ -28,8 +28,43 @@
             </button>
         </header>
 
-        <main class="main">
 
+        <main class="main">
+            <nav class="nav" id="nav">
+                <!-- Default projects -->
+                <div class="default-projects-list">
+                    <button class="button-default-project" id="button-inbox-projects">
+                        <i class="fas fa-inbox"></i>
+                        Inbox
+                    </button>
+                    <button class="button-default-project" id="button-today-projects">
+                        <i class="fas fa-calendar-day"></i>
+                        Today
+                    </button>
+                    <button class="button-default-project" id="button-week-projects">
+                        <i class="fas fa-calendar-week"></i>
+                        This week
+                    </button>
+                </div>
+
+                <!-- User projects -->
+                <h1 class="projects-title">Projects</h1>
+                <div class="projects-list" id="projects-list"></div>
+                <button class="button-add-project" id="button-add-project">
+                    <i class="fas fa-plus"></i>
+                    Add Project
+                </button>
+                <div class="add-project-popup" id="add-project-popup">
+                    <input class="input-add-project-popup" id="input-add-project-popup" type="text" />
+                    <div class="add-project-popup-buttons">
+                        <button class="button-add-project-popup" id="button-add-project-popup">
+                            Add
+                        </button>
+                        <button class="button-cancel-project-popup" id="button-cancel-project-popup">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
         </main>
 
         <footer class="footer">

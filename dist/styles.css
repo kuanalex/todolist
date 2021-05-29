@@ -19,9 +19,8 @@ html {
 
     /* footer support */
     position: relative;
-    /* makes html an element which footer sticks to */
     min-height: 100%;
-    /* not necessary when main takes all available space */
+
 }
 
 body {
