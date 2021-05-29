@@ -19,4 +19,12 @@ export default class Project {
     getTasks() {
         return this.tasks;
     }
+
+    getTask(taskName) {
+        return this.tasks.find((task) => task.getName() === taskName);
+    }
+
+    contains(taskName) {
+        return this.tasks.some((task) => task.getName() === taskName);
+    }
 }
