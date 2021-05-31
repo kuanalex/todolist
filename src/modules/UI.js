@@ -148,4 +148,13 @@ export default class UI {
         }
     }
 
+    static closeAllInputs() {
+        const taskButtons = document.querySelectorAll('[data-task-button]');
+
+        taskButtons.forEach((button) => {
+            UI.closeRenameInput(button);
+            UI.closeSetDateInput(button);
+        });
+    }
+
 }
