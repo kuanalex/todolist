@@ -135,6 +135,17 @@ export default class UI {
         tasksList.textContent = '';
     }
 
-
+    static closeAllPopups() {
+        UI.closeAddProjectPopup();
+        if (document.getElementById('button-add-task')) {
+            UI.closeAddTaskPopup();
+        }
+        if (
+            document.getElementById('tasks-list') &&
+            document.getElementById('tasks-list').innerHTML !== ''
+        ) {
+            UI.closeAllInputs();
+        }
+    }
 
 }
