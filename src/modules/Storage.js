@@ -32,7 +32,6 @@ export default class Storage {
         return todoList;
     }
 
-
     static addProject(project) {
         const todoList = Storage.getTodoList();
         todoList.addProject(project);
@@ -42,6 +41,18 @@ export default class Storage {
     static deleteProject(projectName) {
         const todoList = Storage.getTodoList();
         todoList.deleteProject(projectName);
+        Storage.saveTodoList(todoList);
+    }
+
+    static addTask(projectName, task) {
+        const todoList = Storage.getTodoList();
+        todoList.getProject(projectName).addTask(task);
+        Storage.saveTodoList(todoList);
+    }
+
+    static deleteTask(projectName, taskName) {
+        const todoList = Storage.getTodoList();
+        todoList.getProject(projectName).deleteTask(taskName);
         Storage.saveTodoList(todoList);
     }
 
