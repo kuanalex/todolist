@@ -203,6 +203,28 @@ export default class UI {
         addProjectPopupInput.value = '';
     }
 
+    static addProject() {
+        const addProjectPopupInput = document.getElementById(
+            'input-add-project-popup',
+        );
+        const projectName = addProjectPopupInput.value;
+
+        if (projectName === '') {
+            alert("Project name can't be empty");
+            return;
+        }
+
+        if (Storage.getTodoList().contains(projectName)) {
+            addProjectPopupInput.value = '';
+            alert('Project names must be different');
+            return;
+        }
+
+        Storage.addProject(new Project(projectName));
+        UI.createProject(projectName);
+        UI.closeAddProjectPopup();
+    }
+
 
 
 }
