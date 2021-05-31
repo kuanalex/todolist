@@ -73,5 +73,15 @@ export default class TodoList {
             });
         });
 
+        this.getProject('This week').setTasks(
+            this.getProject('This week')
+            .getTasks()
+            .sort((taskA, taskB) =>
+                compareAsc(
+                    toDate(new Date(taskA.getDateFormatted())),
+                    toDate(new Date(taskB.getDateFormatted())),
+                ),
+            ),
+        );
     }
 }
