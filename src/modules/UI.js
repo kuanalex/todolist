@@ -157,4 +157,8 @@ export default class UI {
         });
     }
 
+    static handleKeyboard(e) {
+        if (e.key === 'Escape') UI.closeAllPopups();
+    }
+
 }
