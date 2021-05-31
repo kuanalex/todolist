@@ -25,4 +25,20 @@ export default class TodoList {
         return this.projects.find((project) => project.getName() === projectName);
     }
 
+    contains(projectName) {
+        return this.projects.some((project) => project.getName() === projectName);
+    }
+
+    addProject(project) {
+        if (this.projects.indexOf(project) > 0) return;
+        this.projects.push(project);
+    }
+
+    deleteProject(projectName) {
+        const projectToDelete = this.projects.find(
+            (project) => project.getName() === projectName,
+        );
+        this.projects.splice(this.projects.indexOf(projectToDelete), 1);
+    }
+
 }
