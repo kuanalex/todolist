@@ -76,4 +76,22 @@ export default class UI {
 
         UI.loadTasks(projectName);
     }
+
+    // CREATING CONTENT
+
+    static createProject(name) {
+        const userProjects = document.getElementById('projects-list');
+        userProjects.innerHTML += ` 
+      <button class="button-project" data-project-button>
+        <div class="left-project-panel">
+          <i class="fas fa-tasks"></i>
+          <span>${name}</span>
+        </div>
+        <div class="right-project-panel">
+          <i class="fas fa-times"></i>
+        </div>
+      </button>`;
+
+        UI.initProjectButtons();
+    }
 }
