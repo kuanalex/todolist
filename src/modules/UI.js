@@ -225,6 +225,8 @@ export default class UI {
         UI.closeAddProjectPopup();
     }
 
-
+    static handleAddProjectPopupInput(e) {
+        if (e.key === 'Enter') UI.addProject();
+    }
 
 }
