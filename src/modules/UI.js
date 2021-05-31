@@ -161,4 +161,27 @@ export default class UI {
         if (e.key === 'Escape') UI.closeAllPopups();
     }
 
+    static initAddProjectButtons() {
+        const addProjectButton = document.getElementById('button-add-project');
+        const addProjectPopupButton = document.getElementById(
+            'button-add-project-popup',
+        );
+        const cancelProjectPopupButton = document.getElementById(
+            'button-cancel-project-popup',
+        );
+        const addProjectPopupInput = document.getElementById(
+            'input-add-project-popup',
+        );
+
+        addProjectButton.addEventListener('click', UI.openAddProjectPopup);
+        addProjectPopupButton.addEventListener('click', UI.addProject);
+        cancelProjectPopupButton.addEventListener('click', UI.closeAddProjectPopup);
+        addProjectPopupInput.addEventListener(
+            'keypress',
+            UI.handleAddProjectPopupInput,
+        );
+    }
+
+
+
 }
