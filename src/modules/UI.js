@@ -31,6 +31,15 @@ export default class UI {
         UI.initAddProjectButtons();
     }
 
+    static loadTasks(projectName) {
+        Storage.getTodoList()
+            .getProject(projectName)
+            .getTasks()
+            .forEach((task) => UI.createTask(task.name, task.dueDate));
 
+        if (projectName !== 'Today' && projectName !== 'This week') {
+            UI.initAddTaskButtons();
+        }
+    }
 
 }
