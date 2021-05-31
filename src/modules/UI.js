@@ -120,5 +120,21 @@ export default class UI {
         UI.clearTasks();
     }
 
+    static clearProjectPreview() {
+        const projectPreview = document.getElementById('project-preview');
+        projectPreview.textContent = '';
+    }
+
+    static clearProjects() {
+        const projectsList = document.getElementById('projects-list');
+        projectsList.textContent = '';
+    }
+
+    static clearTasks() {
+        const tasksList = document.getElementById('tasks-list');
+        tasksList.textContent = '';
+    }
+
+
 
 }
