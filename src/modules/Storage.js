@@ -79,5 +79,4 @@ export default class Storage {
         todoList.updateWeekProject();
         Storage.saveTodoList(todoList);
     }
-
 }
