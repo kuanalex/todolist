@@ -191,6 +191,18 @@ export default class UI {
         addProjectButton.classList.add('active');
     }
 
+    static closeAddProjectPopup() {
+        const addProjectPopup = document.getElementById('add-project-popup');
+        const addProjectButton = document.getElementById('button-add-project');
+        const addProjectPopupInput = document.getElementById(
+            'input-add-project-popup',
+        );
+
+        addProjectPopup.classList.remove('active');
+        addProjectButton.classList.remove('active');
+        addProjectPopupInput.value = '';
+    }
+
 
 
 }
