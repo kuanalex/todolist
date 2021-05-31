@@ -74,4 +74,10 @@ export default class Storage {
         Storage.saveTodoList(todoList);
     }
 
+    static updateWeekProject() {
+        const todoList = Storage.getTodoList();
+        todoList.updateWeekProject();
+        Storage.saveTodoList(todoList);
+    }
+
 }
