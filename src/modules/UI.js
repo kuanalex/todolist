@@ -114,4 +114,11 @@ export default class UI {
         UI.initTaskButtons();
     }
 
+    static clear() {
+        UI.clearProjectPreview();
+        UI.clearProjects();
+        UI.clearTasks();
+    }
+
+
 }
