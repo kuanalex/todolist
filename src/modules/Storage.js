@@ -32,4 +32,11 @@ export default class Storage {
         return todoList;
     }
 
+
+    static addProject(project) {
+        const todoList = Storage.getTodoList();
+        todoList.addProject(project);
+        Storage.saveTodoList(todoList);
+    }
+
 }
