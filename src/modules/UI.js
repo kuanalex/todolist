@@ -303,4 +303,39 @@ export default class UI {
         nav.classList.toggle('active');
     }
 
+    // ADD TASK EVENT LISTENERS
+
+    static initAddTaskButtons() {
+        const addTaskButton = document.getElementById('button-add-task');
+        const addTaskPopupButton = document.getElementById('button-add-task-popup');
+        const cancelTaskPopupButton = document.getElementById(
+            'button-cancel-task-popup',
+        );
+        const addTaskPopupInput = document.getElementById('input-add-task-popup');
+
+        addTaskButton.addEventListener('click', UI.openAddTaskPopup);
+        addTaskPopupButton.addEventListener('click', UI.addTask);
+        cancelTaskPopupButton.addEventListener('click', UI.closeAddTaskPopup);
+        addTaskPopupInput.addEventListener('keypress', UI.handleAddTaskPopupInput);
+    }
+
+    static openAddTaskPopup() {
+        const addTaskPopup = document.getElementById('add-task-popup');
+        const addTaskButton = document.getElementById('button-add-task');
+
+        UI.closeAllPopups();
+        addTaskPopup.classList.add('active');
+        addTaskButton.classList.add('active');
+    }
+
+    static closeAddTaskPopup() {
+        const addTaskPopup = document.getElementById('add-task-popup');
+        const addTaskButton = document.getElementById('button-add-task');
+        const addTaskInput = document.getElementById('input-add-task-popup');
+
+        addTaskPopup.classList.remove('active');
+        addTaskButton.classList.remove('active');
+        addTaskInput.value = '';
+    }
+
 }
