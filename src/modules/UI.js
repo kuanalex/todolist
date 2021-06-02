@@ -338,4 +338,30 @@ export default class UI {
         addTaskInput.value = '';
     }
 
+    static addTask() {
+        const projectName = document.getElementById('project-name').textContent;
+        const addTaskPopupInput = document.getElementById('input-add-task-popup');
+        const taskName = addTaskPopupInput.value;
+
+        if (taskName === '') {
+            alert("Task name can't be empty");
+            return;
+        }
+        if (Storage.getTodoList().getProject(projectName).contains(taskName)) {
+            alert('Task names must be different');
+            addTaskPopupInput.value = '';
+            return;
+        }
+
+        Storage.addTask(projectName, new Task(taskName));
+        UI.createTask(taskName, 'No date');
+        UI.closeAddTaskPopup();
+    }
+
+    static handleAddTaskPopupInput(e) {
+        if (e.key === 'Enter') UI.addTask();
+    }
+
+
+
 }
