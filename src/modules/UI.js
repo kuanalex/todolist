@@ -362,6 +362,44 @@ export default class UI {
         if (e.key === 'Enter') UI.addTask();
     }
 
+    // TASK EVENT LISTENERS
+
+    static initTaskButtons() {
+        const taskButtons = document.querySelectorAll('[data-task-button]');
+        const taskNameInputs = document.querySelectorAll('[data-input-task-name');
+        const dueDateInputs = document.querySelectorAll('[data-input-due-date');
+
+        taskButtons.forEach((taskButton) =>
+            taskButton.addEventListener('click', UI.handleTaskButton),
+        );
+        taskNameInputs.forEach((taskNameInput) =>
+            taskNameInput.addEventListener('keypress', UI.renameTask),
+        );
+        dueDateInputs.forEach((dueDateInput) =>
+            dueDateInput.addEventListener('change', UI.setTaskDate),
+        );
+    }
+
+    static handleTaskButton(e) {
+        if (e.target.classList.contains('fa-circle')) {
+            UI.setTaskCompleted(this);
+            return;
+        }
+        if (e.target.classList.contains('fa-times')) {
+            UI.deleteTask(this);
+            return;
+        }
+        if (e.target.classList.contains('task-content')) {
+            UI.openRenameInput(this);
+            return;
+        }
+        if (e.target.classList.contains('due-date')) {
+            UI.openSetDateInput(this);
+        }
+    }
+
+
+
 
 
 }
