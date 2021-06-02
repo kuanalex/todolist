@@ -265,9 +265,42 @@ export default class UI {
         UI.openProject('This week', this);
     }
 
+    static handleProjectButton(e) {
+        const projectName = this.children[0].children[1].textContent;
 
+        if (e.target.classList.contains('fa-times')) {
+            UI.deleteProject(projectName, this);
+            return;
+        }
 
+        UI.openProject(projectName, this);
+    }
 
+    static openProject(projectName, projectButton) {
+        const defaultProjectButtons = document.querySelectorAll(
+            '.button-default-project',
+        );
+        const projectButtons = document.querySelectorAll('.button-project');
+        const buttons = [...defaultProjectButtons, ...projectButtons];
 
+        buttons.forEach((button) => button.classList.remove('active'));
+        projectButton.classList.add('active');
+        UI.closeAddProjectPopup();
+        UI.loadProjectContent(projectName);
+    }
+
+    static deleteProject(projectName, button) {
+        if (button.classList.contains('active')) UI.clearProjectPreview();
+        Storage.deleteProject(projectName);
+        UI.clearProjects();
+        UI.loadProjects();
+    }
+
+    static openNav() {
+        const nav = document.getElementById('nav');
+
+        UI.closeAllPopups();
+        nav.classList.toggle('active');
+    }
 
 }
