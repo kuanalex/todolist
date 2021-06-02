@@ -229,4 +229,45 @@ export default class UI {
         if (e.key === 'Enter') UI.addProject();
     }
 
+    // PROJECT EVENT LISTENERS
+
+    static initProjectButtons() {
+        const inboxProjectsButton = document.getElementById(
+            'button-inbox-projects',
+        );
+        const todayProjectsButton = document.getElementById(
+            'button-today-projects',
+        );
+        const weekProjectsButton = document.getElementById('button-week-projects');
+        const projectButtons = document.querySelectorAll('[data-project-button]');
+        const openNavButton = document.getElementById('button-open-nav');
+
+        inboxProjectsButton.addEventListener('click', UI.openInboxTasks);
+        todayProjectsButton.addEventListener('click', UI.openTodayTasks);
+        weekProjectsButton.addEventListener('click', UI.openWeekTasks);
+        projectButtons.forEach((projectButton) =>
+            projectButton.addEventListener('click', UI.handleProjectButton),
+        );
+        openNavButton.addEventListener('click', UI.openNav);
+    }
+
+    static openInboxTasks() {
+        UI.openProject('Inbox', this);
+    }
+
+    static openTodayTasks() {
+        Storage.updateTodayProject();
+        UI.openProject('Today', this);
+    }
+
+    static openWeekTasks() {
+        Storage.updateWeekProject();
+        UI.openProject('This week', this);
+    }
+
+
+
+
+
+
 }
